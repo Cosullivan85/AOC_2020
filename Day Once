@@ -1,0 +1,28 @@
+inputstr = """
+1721
+979
+366
+299
+675
+1456
+
+    
+"""
+inputlist = []
+inputlist = inputstr.split()
+inputlist.sort()
+
+for i in range(0, len(inputlist)): 
+    inputlist[i] = int(inputlist[i]) 
+    
+left, right = 0, len(inputlist) - 1
+
+while True:
+    pair_sum = inputlist[left] + inputlist[right]
+    if pair_sum == 2020:
+        print (inputlist[left]*inputlist[right])
+        pass
+    if pair_sum < 2020:
+        left += 1
+    else:
+        right -= 1
