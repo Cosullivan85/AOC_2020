@@ -1,0 +1,26 @@
+def validpasswords():
+    
+    with open("Passwords.txt", "r") as f:
+        passwords = f.read()
+   
+    passwords = passwords.split()
+    passlength = int(len(passwords)/3)
+    valid = 0
+    
+    for n in range(0, passlength):
+        minpass = passwords[n*3]
+        minpass = minpass.split("-")
+        minpass = int(minpass[0])
+        maxpass = passwords[n*3]
+        maxpass = maxpass.split("-")
+        maxpass = int(maxpass[1])
+        passlet = passwords[(n*3)+1]
+        passlet = passlet[0]
+        passstr = passwords[(n*3)+2]
+        
+        if passstr.count(passlet) >= minpass and passstr.count(passlet) <= maxpass:
+            valid += 1
+            
+    print(valid)
+                   
+validpasswords()
